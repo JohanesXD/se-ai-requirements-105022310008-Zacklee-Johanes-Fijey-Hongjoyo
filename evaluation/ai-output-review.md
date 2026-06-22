@@ -64,3 +64,24 @@ outputs/raw/requirements-ai-output.md
 ## Final Output
 - [03-requirements.md](../../outputs/reviewed/03-requirements.md)
 - [04-user-stories.md](../../outputs/reviewed/04-user-stories.md)
+
+---
+
+## Skill
+Requirements Prioritization & Negotiation
+
+## AI Output File
+outputs/raw/prioritization-ai-output.md
+
+## Problems Found
+1. **Requirements Tidak Lengkap**: AI melewatkan prioritisasi untuk FR-08 (penonaktifan akun) dan FR-09 (standardisasi nama file tugas) dengan alasan "otomatis". Semua FR wajib diprioritaskan.
+2. **Kontradiksi Logika Prioritas**: AI memberikan prioritas "Must Have" (M) pada FR-06 (Dosen menilai tugas) tetapi hanya memberikan prioritas "Should Have" (S) pada FR-04 (Mahasiswa mengunggah berkas). Ini adalah kesalahan logika dependensi: Dosen tidak dapat menilai tugas jika mahasiswa tidak dapat mengunggah berkas tugas tersebut ke sistem.
+3. **Resolusi Konflik Terlalu Dangkal**: Deskripsi konflik stakeholder ("mahasiswa ingin sistem canggih vs IT hemat biaya") sangat klise, dangkal, dan tidak menawarkan solusi konkret dengan trade-off teknis yang jelas.
+
+## Student Corrections
+1. **Melengkapi Seluruh Kebutuhan Fungsional**: Memasukkan kembali FR-08 dan FR-09 ke dalam tabel prioritisasi MoSCoW.
+2. **Perbaikan Logika Dependensi & Prioritas**: Menyesuaikan prioritas FR-04 (Upload tugas) menjadi "Must Have" (M) agar selaras dengan dependensinya terhadap FR-06 (Grading).
+3. **Pendefinisian Konflik Realistis**: Merumuskan konflik antara kebutuhan mahasiswa mengunggah file tanpa batas kapasitas (agar leluasa melampirkan berkas besar) vs batasan storage server dari administrator/IT. Mengambil keputusan kompromi (limit 20MB per file dengan kompresi otomatis) sebagai hasil resolusi konflik.
+
+## Final Output
+- [05-prioritization.md](../../outputs/reviewed/05-prioritization.md)
