@@ -40,3 +40,27 @@ outputs/raw/elicitation-ai-output.md
 ## Final Output
 [02-elicitation.md](../../outputs/reviewed/02-elicitation.md)
 
+---
+
+## Skill
+Requirements Elaboration and Specification
+
+## AI Output File
+outputs/raw/requirements-ai-output.md
+
+## Problems Found
+1. **Requirement Fungsional Duplikat**: FR-06 ("Dosen dapat memberikan nilai angka...") dan FR-08 ("Dosen dapat menginput nilai tugas...") memiliki substansi yang sama, menyebabkan redundancy.
+2. **Leakage Scope Out-of-Scope**: FR-09 menyertakan fitur "notifikasi chat instan", padahal chatting sudah diklasifikasikan sebagai *out-of-scope* pada tahap inception.
+3. **NFR Tidak Terukur (Ambigu)**: NFR-01 s.d NFR-04 menggunakan kata subjektif ("sangat cepat", "sangat aman", "user-friendly", "selalu online tanpa downtime") yang tidak dapat diuji.
+4. **Acceptance Criteria Tidak Memiliki Failure/Alternative Scenario**: US-01 (Upload), US-05 (Grading), dan US-06 (Unsubmit) hanya mendefinisikan skenario sukses (*happy path*) tanpa menangani kasus batas (seperti file > 20MB, nilai di luar 0-100, atau unsubmit setelah dinilai).
+5. **Kurang dari Minimum Kriteria**: US-04 hanya memiliki 1 Acceptance Criteria (AC), sedangkan ketentuannya minimal 2 AC per User Story.
+
+## Student Corrections
+1. **Konsolidasi FR & Penghapusan Out-of-Scope**: Menggabungkan FR-06 dan FR-08 menjadi satu requirement fungsional terintegrasi, menghapus FR-09 (chat), dan menambahkan FR baru (FR-08: penonaktifan akun secara logis) agar tetap berjumlah minimal 8 FR.
+2. **Kuantifikasi Metrik NFR**: Mengubah seluruh NFR menggunakan metrik terukur (misalnya: enkripsi AES-256 untuk security, waktu respons < 3 detik untuk performance, ketersediaan 99.9% untuk reliability, dan SUS score > 75 untuk usability).
+3. **Melengkapi Skenario Alternatif/Gagal pada AC**: Menambahkan skenario gagal untuk setiap User Story (seperti penolakan ukuran file > 20MB, penolakan input nilai negatif/di atas 100, dan penolakan unsubmit setelah dinilai).
+4. **Menambah AC Baru**: Menambahkan kriteria penerimaan kedua pada US-04 untuk notifikasi email dan notifikasi *in-app*.
+
+## Final Output
+- [03-requirements.md](../../outputs/reviewed/03-requirements.md)
+- [04-user-stories.md](../../outputs/reviewed/04-user-stories.md)
