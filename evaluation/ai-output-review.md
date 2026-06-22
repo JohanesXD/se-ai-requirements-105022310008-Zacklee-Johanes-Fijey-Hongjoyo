@@ -85,3 +85,26 @@ outputs/raw/prioritization-ai-output.md
 
 ## Final Output
 - [05-prioritization.md](../../outputs/reviewed/05-prioritization.md)
+
+---
+
+## Skill
+Requirements Validation and Change Management
+
+## AI Output File
+outputs/raw/validation-ai-output.md
+
+## Problems Found
+1. **Audit Validasi Tidak Lengkap**: AI hanya mengaudit 3 requirements, melanggar ketentuan minimal yaitu 5 requirements.
+2. **Hasil Evaluasi Tidak Berdasar**: AI tidak mengevaluasi kelima kriteria wajib (Clarity, Completeness, Consistency, Feasibility, Testability) secara mendalam, hanya memberikan penilaian dangkal ("sangat jelas dan bisa langsung dikoding").
+3. **Analisis Dampak Sangat Lemah**: Analisis dampak untuk usulan fitur plagiarisme (CR-01) ditulis secara instan ("dampaknya sangat bagus... tidak ada dampak buruk bagi server"). Padahal integrasi pendeteksi plagiarisme membutuhkan API eksternal (seperti Turnitin), mengubah skema database, memakan beban CPU tinggi, dan menuntut biaya langganan API tambahan.
+4. **Keputusan yang Keliru (High Risk)**: AI menyetujui (*Approved*) fitur plagiarisme otomatis untuk langsung masuk ke rilis MVP tanpa mempertimbangkan tenggat waktu dan biaya proyek.
+
+## Student Corrections
+1. **Melengkapi Jumlah Validasi**: Memperluas audit validasi untuk mencakup tepat 5 requirements (FR-04, FR-05, FR-06, NFR-01, dan NFR-05) dengan mengevaluasi masing-masing aspek (Clarity, Completeness, Consistency, Feasibility, Testability).
+2. **Analisis Dampak Komprehensif**: Menjabarkan dampak teknis CR-01 secara detail pada database (tabel `submissions` memerlukan kolom baru `plagiarism_percentage`), arsitektur (integrasi API Turnitin via backend service), beban server (proses pemindaian asinkronus), dan waktu rilis (penundaan pengerjaan selama 2 minggu).
+3. **Koreksi Keputusan (Risk Management)**: Mengubah keputusan CR-01 menjadi **Deferred** (ditangguhkan) karena fitur ini tidak masuk kebutuhan MVP rilis awal dan memerlukan lisensi pihak ketiga berbayar yang belum dianggarkan.
+
+## Final Output
+- [07-validation.md](../../outputs/reviewed/07-validation.md)
+- [08-change-request.md](../../outputs/reviewed/08-change-request.md)
